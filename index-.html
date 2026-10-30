@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#c76b86"><title>سكينة</title>
+<style>
+:root{--a:#c76b86;--dk:0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0}
+body{font-family:"Noto Naskh Arabic","Amiri",Tahoma,sans-serif;background:var(--bg);color:var(--tx);height:100dvh;overflow:hidden;user-select:none}
+body.l{--bg:color-mix(in srgb,var(--a) 7%,#fff);--cd:#fff;--tx:#3b2a30;--mu:#9a8a90;--ln:color-mix(in srgb,var(--a) 22%,#fff)}
+body.d{--bg:#121012;--cd:#1e1b1e;--tx:#f3e9ec;--mu:#9a8d92;--ln:#3a3338}
+#app{max-width:480px;margin:auto;height:100dvh;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top)}
+#v{flex:1;overflow:auto;padding:14px 18px}
+nav{display:flex;border-top:1px solid var(--ln);background:var(--cd);padding:8px 0 calc(8px + env(safe-area-inset-bottom))}
+nav button{flex:1;background:none;border:0;color:var(--mu);font:inherit;font-size:12px;display:flex;flex-direction:column;align-items:center;gap:2px}
+nav button i{font-style:normal;font-size:20px}nav .on{color:var(--a)}
+.hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.hd h2{font-size:22px;color:var(--a)}.ib{background:none;border:0;font-size:22px;color:var(--a)}
+.logo{font-size:56px;text-align:center;color:var(--a);margin-top:14vh}
+.sub{text-align:center;color:var(--mu);margin:10px 0 40px}
+.btn{display:block;width:100%;padding:14px;border:0;border-radius:16px;background:var(--a);color:#fff;font:inherit;font-size:17px;margin-top:10px}
+.btn.o{background:none;border:1.5px solid var(--a);color:var(--a)}
+.chips{display:flex;gap:8px;justify-content:center;margin:12px 0}
+.chip{padding:7px 18px;border-radius:20px;background:var(--cd);border:1px solid var(--ln);color:var(--mu);font:inherit}
+.chip.on{background:var(--a);color:#fff;border-color:var(--a)}
+.ring{width:260px;height:260px;margin:18px auto;border-radius:50%;position:relative;display:grid;place-items:center;background:radial-gradient(circle,var(--cd) 62%,color-mix(in srgb,var(--a) 14%,var(--cd)));cursor:pointer;touch-action:manipulation}
+.ring svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.ring b{font-size:68px;color:var(--a);line-height:1;font-weight:500}
+.ring span{display:block;text-align:center;color:var(--mu);font-size:15px}
+.ring:active{transform:scale(.97)}
+.dn{text-align:center;font-size:22px;margin-top:6px}
+.bar{height:8px;border-radius:8px;background:var(--ln);overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;background:var(--a)}
+.row{display:flex;justify-content:space-between;color:var(--mu);font-size:14px}
+.it{display:flex;align-items:center;gap:12px;background:var(--cd);border:1px solid var(--ln);border-radius:16px;padding:12px 14px;margin-bottom:10px}
+.it .t{flex:1}.it small{color:var(--mu);display:block}
+.it .n{width:44px;height:44px;border-radius:50%;border:2px solid var(--a);display:grid;place-items:center;color:var(--a);font-size:14px}
+.st{background:none;border:0;font-size:20px;color:var(--a)}
+.g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.th{background:var(--cd);border:1.5px solid var(--ln);border-radius:16px;padding:12px 4px;text-align:center;font-size:12px;color:var(--mu);position:relative}
+.th b{display:block;width:34px;height:34px;border-radius:50%;margin:0 auto 6px}
+.th.on{border-color:var(--a)}.th.on:after{content:"✓";position:absolute;top:4px;left:8px;color:var(--a)}
+.set{display:flex;align-items:center;justify-content:space-between;background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:14px;margin-bottom:10px}
+.sw{width:46px;height:26px;border-radius:13px;background:var(--ln);position:relative;border:0}
+.sw:after{content:"";position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}
+.sw.on{background:var(--a)}.sw.on:after{right:23px}
+input[type=color]{width:100%;height:70px;border:0;border-radius:18px;background:none;margin:10px 0}
+.fl{position:absolute;width:150px;height:200px;color:var(--a);opacity:.22;pointer-events:none}.fl.r{right:-10px;bottom:70px}.fl.lf{left:-10px;bottom:70px;transform:scaleX(-1)}#v{position:relative}
+.mt{color:var(--mu);margin:10px 2px;font-size:14px}
+</style></head><body class="l"><svg width="0" height="0" style="position:absolute"><defs><symbol id="bn" viewBox="0 0 200 260" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M100 255C98 200 105 150 95 95M100 200C70 180 55 150 50 120M100 200C130 185 148 160 152 128M97 150C75 135 68 112 70 90M99 130C122 118 132 98 130 78"/><path d="M50 120c-14-8-18-24-12-38 14 6 20 22 12 38zM152 128c14-8 18-24 12-38-14 6-20 22-12 38zM70 90c-12-8-14-22-8-34 12 6 16 20 8 34zM130 78c12-8 14-22 8-34-12 6-16 20-8 34z" fill="currentColor" fill-opacity=".15"/><g transform="translate(95 80)"><circle r="5" fill="currentColor" fill-opacity=".4"/><path d="M0-6C-12-24-4-34 0-36 4-34 12-24 0-6zM6 0C24-12 34-4 36 0 34 4 24 12 6 0zM-6 0C-24-12-34-4-36 0-34 4-24 12-6 0zM0 6c-12 18-4 28 0 30 4-2 12-12 0-30z" transform="scale(.55)" fill="currentColor" fill-opacity=".18"/></g></symbol></defs></svg><div id="app"><div id="v"></div><nav id="nv"></nav></div>
+<script>
+const TH=[["Rose Blush","وردي هادي","#e07a8e"],["Cream Beige","بيج كريمي","#c9a27a"],["Soft Sage","أخضر هادي","#7fa072"],["Lavender Mist","لافندر","#9d86d6"],["Powder Blue","أزرق فاتح","#6f9be0"],["Peach Sorbet","خوخي","#f2916b"],["Pistachio","فستقي","#8fae60"],["Butter Yellow","أصفر زيتي","#e3b94d"],["Lilac Pink","موف وردي","#b95fc0"],["Mint Cloud","أخضر نعناعي","#5faa92"],["Champagne","شمبانيا","#c9a086"],["Periwinkle","بنفسجي مزرق","#7d82d9"],["Burgundy","برجندي","#8e2a45"],["Black Light","أسود فاتح","#2a2a2a"],["Black Dark","أسود غامق","#444"]];
+const D0=[["سبحان الله",33],["الحمد لله",33],["الله أكبر",33],["أستغفر الله",100],["لا إله إلا الله",100],["اللهم صل على محمد",100]].map((x,i)=>({id:i,t:x[0],g:x[1],c:0,f:0}));
+let S=Object.assign({th:0,dark:0,vib:1,snd:1,goal:100,sel:0,today:0,day:new Date().toDateString(),list:D0,seen:0,custom:"#c76b86",cbg:"#fbeff2"},JSON.parse(localStorage.sk||"{}"));
+if(S.day!=new Date().toDateString()){S.day=new Date().toDateString();S.today=0}
+let tab="home",flt="all";
+const save=()=>localStorage.sk=JSON.stringify(S),$=s=>document.querySelector(s);
+function theme(){const c=S.th==15?S.custom:TH[S.th][2],b=document.body;document.documentElement.style.setProperty("--a",c);b.className=(S.dark||S.th==14)?"d":"l";if(S.th==13)document.documentElement.style.setProperty("--a","#2a2a2a");if(S.th==15&&!b.classList.contains("d"))b.style.setProperty("--bg",S.cbg);else b.style.removeProperty("--bg")}
+const cur=()=>S.list.find(x=>x.id==S.sel)||S.list[0];
+function nav(){const n=[["home","◎","السبحة"],["list","☰","الأذكار"],["themes","❀","الثيمات"],["set","⚙","الإعدادات"]];
+$("#nv").innerHTML=n.map(x=>`<button class="${tab==x[0]?"on":""}" onclick="go('${x[0]}')"><i>${x[1]}</i>${x[2]}</button>`).join("");$("#nv").style.display=tab=="splash"?"none":"flex"}
+function go(t){tab=t;draw()}
+function draw(){theme();nav();const v=$("#v");v.innerHTML=({splash,home,list,themes,set,custom})[tab]();}
+function splash(){return`<svg class="fl r"><use href="#bn"/></svg><svg class="fl lf"><use href="#bn"/></svg><div class="logo">سَكينة</div><p class="sub">✿ واذكر ربك كثيرا ✿</p><div style="font-size:90px;text-align:center;color:var(--a);opacity:.5">❀</div><div style="margin-top:12vh"><button class="btn" onclick="S.seen=1;save();go('home')">← ابدأ</button></div>`}
+function home(){const d=cur(),p=Math.min(1,d.c/d.g),C=2*Math.PI*122,gp=Math.min(100,Math.round(S.today/S.goal*100));
+return`<svg class="fl r"><use href="#bn"/></svg><svg class="fl lf"><use href="#bn"/></svg><div class="hd"><button class="ib" onclick="go('themes')">❀</button><h2 style="font-size:30px">سَكينة</h2><button class="ib" onclick="go('set')">⚙</button></div>
+<p class="sub" style="margin:0">✿ واذكر ربك كثيرا ✿</p>
+<div class="chips">${S.list.slice(0,3).map(x=>`<button class="chip ${x.id==d.id?"on":""}" onclick="S.sel=${x.id};save();draw()">${x.t}</button>`).join("")}</div>
+<div class="ring" onclick="tap()"><svg viewBox="0 0 260 260"><circle cx="130" cy="130" r="122" fill="none" stroke="var(--ln)" stroke-width="6"/><circle id="pg" cx="130" cy="130" r="122" fill="none" stroke="var(--a)" stroke-width="6" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-p)}"/></svg><div><b id="cn">${d.c}</b><span>الهدف : ${d.g}</span><span style="font-size:26px">☝</span></div></div>
+<div class="dn">${d.t}</div>
+<div class="row" style="margin-top:14px"><span>الهدف اليومي: ${S.today} تسبيحة</span><span>${gp}%</span></div><div class="bar"><i style="width:${gp}%"></i></div>
+<button class="btn o" onclick="d_reset()">↻ تصفير العداد</button>`}
+let AC;function snd(big){if(!S.snd)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime;o.frequency.value=big?880:520;o.type="sine";g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(big?.35:.18,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+(big?.9:.12));o.connect(g).connect(AC.destination);o.start(t);o.stop(t+(big?.9:.15))}catch(e){}}
+function tap(){const d=cur();d.c++;S.today++;const hit=d.c%d.g==0;snd(hit);if(S.vib&&navigator.vibrate)navigator.vibrate(hit?[100,60,100]:15);save();draw()}
+function d_reset(){cur().c=0;save();draw()}
+function list(){const L=S.list.filter(x=>flt=="all"||(flt=="fav"&&x.f)||(flt=="mine"&&x.id>5));
+return`<div class="hd"><button class="ib" onclick="add()">+</button><h2>الأذكار</h2><span></span></div>
+<div class="chips">${[["all","الكل"],["fav","المفضلة"],["mine","من قبلك"]].map(x=>`<button class="chip ${flt==x[0]?"on":""}" onclick="flt='${x[0]}';draw()">${x[1]}</button>`).join("")}</div>
+${L.map(x=>`<div class="it"><button class="st" onclick="fav(${x.id})">${x.f?"★":"☆"}</button><div class="t" onclick="S.sel=${x.id};save();go('home')">${x.t}<small>العداد : ${x.c}</small></div><div class="n">${x.g}</div></div>`).join("")||'<p class="sub">لا يوجد أذكار</p>'}`}
+function fav(i){const x=S.list.find(y=>y.id==i);x.f^=1;save();draw()}
+function add(){const t=prompt("نص الذكر");if(!t)return;const g=+prompt("الهدف (مثلاً 33)","33")||33;S.list.push({id:Date.now(),t,g,c:0,f:0});save();draw()}
+function themes(){return`<div class="hd"><span></span><h2>الثيمات</h2><span></span></div><div class="g">${TH.map((x,i)=>`<div class="th ${S.th==i?"on":""}" onclick="S.th=${i};if(${i}==14)S.dark=1;save();draw()"><b style="background:${x[2]}"></b>${x[0]}<br>${x[1]}</div>`).join("")}</div><button class="btn" onclick="go('custom')">✎ تخصيص ثيم جديد</button>`}
+function custom(){const u=(k,l)=>`<p class="mt">${l}</p><input type="color" value="${S[k]}" oninput="S[k='${k}']=this.value;S.th=15;theme()">`;
+return`<div class="hd"><button class="ib" onclick="go('themes')">›</button><h2>تخصيص ثيم</h2><span></span></div>${u("cbg","لون الخلفية")}${u("custom","لون الدائرة والأزرار")}<button class="btn" onclick="S.th=15;save();go('home')">حفظ الثيم</button>`}
+function set(){const sw=(k,l)=>`<div class="set"><span>${l}</span><button class="sw ${S[k]?"on":""}" onclick="S['${k}']^=1;save();draw()"></button></div>`;
+return`<div class="hd"><span></span><h2>الإعدادات</h2><span></span></div>${sw("dark","الوضع الداكن")}${sw("vib","الاهتزاز عند التسبيح")}${sw("snd","الصوت")}
+<div class="set"><span>تعيين الهدف اليومي</span><b onclick="S.goal=+prompt('الهدف اليومي',S.goal)||S.goal;save();draw()" style="color:var(--a)">${S.goal}</b></div>
+<div class="set" onclick="if(confirm('مسح كل البيانات؟')){localStorage.clear();location.reload()}"><span>تصدير / مسح البيانات</span><span>🗑</span></div>
+<p class="mt" style="text-align:center">سَكينة — كل تسبيحة راحة لقلبك</p>`}
+if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
+tab=S.seen?"home":"splash";draw();
+</script></body></html>
